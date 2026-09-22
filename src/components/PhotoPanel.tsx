@@ -16,7 +16,7 @@ export function PhotoPanel({ enabled }: { enabled: boolean }) {
       y.set(((event.clientX - bounds.left) / bounds.width - .5) * 12);
     }}
     onPointerLeave={() => { x.set(0); y.set(0); }}>
-    <img src="/dzaky-portrait.jpg" alt="Foto Muhamad Dzaky Putra Fardian" width="1085" height="1449" loading="lazy" />
+    <img src="/dzaky-portrait.jpeg" alt="Foto Muhamad Dzaky Putra Fardian" width="1085" height="1449" loading="lazy" />
     <span className="photo-label">DZAKY / CHAPTER 01</span>
     <AnimatePresence>
       {shot > 0 && enabled && <motion.span key={shot} className="photo-impact" aria-hidden="true"
