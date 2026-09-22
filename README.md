@@ -41,7 +41,7 @@ Edit `src/data/mangaData.ts`:
 
 Email yang terpasang bersumber dari repository PortofolioDzaky. Periksa kembali sebelum publikasi. Tautan CV, LinkedIn, dan demo sengaja kosong karena belum ada URL yang terverifikasi; tombol tidak muncul bila kosong. Tambahkan berkas CV milik sendiri ke `public/cv.pdf`, lalu isi `cvUrl: '/cv.pdf'` untuk mengaktifkan unduhan.
 
-Ilustrasi karakter adalah ilustrasi manga, bukan foto pemilik. Ganti `public/midnight-manga.webp` jika ingin memakai gambar lain. Warna, ukuran, serta layout berada di `src/index.css`.
+Visual utama digambar langsung oleh HTML5 Canvas 2D di `src/components/InkStage.tsx`: screentone, speed lines, lettering, perahu kertas, dan permukaan tinta. Simulasi menggunakan spring yang saling terhubung, damping, fixed timestep 120 Hz, dan partikel percikan. Klik/sentuh panel atau tekan tombol dengan keyboard untuk membuat riak. Tidak menggunakan aset gambar generate atau prompt gambar. Warna dan layout berada di `src/index.css`.
 
 ## Proyek terpasang
 
@@ -57,7 +57,7 @@ Tidak ada angka pengalaman, statistik proyek, atau alamat demo buatan.
 - Intro per sesi dengan tombol lewati.
 - Smooth scrolling Lenis, indikator progress baca, navigasi aktif.
 - Huruf judul, balon percakapan, dan stiker bisa ditarik; kembali ke posisi awal.
-- Parallax ilustrasi, efek zoom, ticker berjalan, dan reveal panel saat scroll.
+- Parallax panel Canvas, simulasi riak tinta, ticker berjalan, dan reveal panel saat scroll.
 - Partikel tinta saat klik/sentuh.
 - Interaksi tumpahkan tinta dan gambar ulang pada profil, menggantikan flood/rebuild pada template pantai.
 - Filter proyek, spring hover kartu, dan dialog detail (Escape, klik luar, focus trap browser).
@@ -75,4 +75,4 @@ Grafik kontribusi memakai layanan publik `https://github-contributions-api.jogru
 
 ## Kredit
 
-Template awal: [ryhndastra/template-porto-pantai](https://github.com/ryhndastra/template-porto-pantai), lisensi MIT. Lisensi dan pemberitahuan hak cipta asal dipertahankan di `LICENSE`. Struktur dan sebagian hook smooth scrolling berasal dari template tersebut; tampilan manga dan komponen halaman merupakan adaptasi baru. Ilustrasi hero dibuat menggunakan image generation untuk proyek ini.
+Template awal: [ryhndastra/template-porto-pantai](https://github.com/ryhndastra/template-porto-pantai), lisensi MIT. Lisensi dan pemberitahuan hak cipta asal dipertahankan di `LICENSE`. Struktur dan sebagian hook smooth scrolling berasal dari template tersebut; tampilan manga dan komponen halaman merupakan adaptasi baru. Visual memakai Canvas 2D, CSS, dan tipografi. Simulasi berhenti saat panel di luar layar, tab tersembunyi, atau mode kurangi animasi aktif.

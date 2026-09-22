@@ -1,8 +1,9 @@
-# Ilustrasi hero
+# Catatan visual
 
-Berkas: public/midnight-manga.webp
-Dibuat dengan alat image generation bawaan, kemudian dikonversi ke WebP untuk website.
+Tidak ada gambar hasil image generation pada website.
 
-Prompt: Original romantic slice-of-life manga illustration of a young adult male programmer wearing headphones at a desk with laptop and microphone by a window overlooking city rooftops under a crescent moon. Crisp black ink, screentone halftone shadows, ivory and black with dusty rose accents, paper texture, portrait composition, no text or logos. Initial atmosphere referenced midnight radio; final website uses a general manga theme.
-
-Karakter ilustrasi ini bukan potret fotografis Dzaky dan bukan karakter resmi suatu seri.
+- Hero: HTML5 Canvas 2D, screentone dan speed lines prosedural, lettering, perahu kertas, serta simulasi spring permukaan tinta dengan damping dan partikel.
+- Profil: monogram DP dari HTML dan CSS.
+- Ikon: Lucide, Simple Icons, dan favicon SVG sederhana.
+- Animasi antarmuka: Framer Motion. Smooth scroll: Lenis. Styling: Tailwind CSS dan CSS khusus.
+- Mode kurangi animasi menampilkan Canvas statis.
