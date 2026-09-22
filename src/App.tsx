@@ -1,3 +1,4 @@
+import { PhotoPanel } from "./components/PhotoPanel";
 import { InkStage } from "./components/InkStage";
 import {
   useLenisSmoothScroll,
@@ -104,6 +105,7 @@ function InkCanvas({ enabled }: { enabled: boolean }) {
       life: number;
       r: number;
     }[] = [];
+    const impacts: { x: number; y: number; life: number; word: string }[] = [];
     let frame = 0;
     const resize = () => {
       const dpr = Math.min(devicePixelRatio, 2);
@@ -112,6 +114,9 @@ function InkCanvas({ enabled }: { enabled: boolean }) {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
     const burst = (e: PointerEvent) => {
+      if ((e.target as Element)?.closest("input, select, textarea")) return;
+      impacts.push({ x: Math.max(65, Math.min(innerWidth - 65, e.clientX)), y: Math.max(60, e.clientY), life: 1, word: ["TAP!", "POW!", "ドン!", "CLICK!"][Math.floor(Math.random() * 4)] });
+      if (impacts.length > 4) impacts.shift();
       for (let i = 0; i < 10; i++)
         particles.push({
           x: e.clientX,
@@ -132,13 +137,30 @@ function InkCanvas({ enabled }: { enabled: boolean }) {
         p.vy += 0.1;
         p.life -= 0.025;
         ctx!.globalAlpha = Math.max(0, p.life);
-        ctx!.fillStyle = "#c47183";
+        ctx!.fillStyle = "#ac201c";
         ctx!.beginPath();
         ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx!.fill();
         if (p.life <= 0) particles.splice(i, 1);
       }
-      frame = particles.length ? requestAnimationFrame(draw) : 0;
+      for (let i = impacts.length - 1; i >= 0; i--) {
+        const p = impacts[i];
+        p.life -= .028;
+        if (p.life <= 0) { impacts.splice(i, 1); continue; }
+        ctx!.save(); ctx!.translate(p.x, p.y - (1 - p.life) * 38); ctx!.rotate(-.14);
+        ctx!.globalAlpha = Math.min(1, p.life * 3); ctx!.textAlign = "center";
+        ctx!.font = "italic 900 25px sans-serif"; ctx!.lineWidth = 4;
+        ctx!.strokeStyle = "#faf8f1"; ctx!.strokeText(p.word, 0, -15);
+        ctx!.fillStyle = "#ac201c"; ctx!.fillText(p.word, 0, -15);
+        for (let j = 0; j < 8; j++) {
+          const a = j / 8 * Math.PI * 2;
+          ctx!.beginPath(); ctx!.moveTo(Math.cos(a) * 40, Math.sin(a) * 28);
+          ctx!.lineTo(Math.cos(a) * (60 - p.life * 8), Math.sin(a) * (42 - p.life * 8));
+          ctx!.strokeStyle = "#242321"; ctx!.lineWidth = 1.5; ctx!.stroke();
+        }
+        ctx!.restore();
+      }
+      frame = particles.length || impacts.length ? requestAnimationFrame(draw) : 0;
     }
     resize();
     window.addEventListener("resize", resize);
@@ -709,12 +731,7 @@ export default function App() {
               <Reveal className="about-card panel">
                 <span className="eyebrow">THE MAIN CHARACTER</span>
                 <div className="portrait-crop">
-                  <div className="profile-monogram" aria-label="Inisial Dzaky Putra">
-                    <small>DEVELOPER / MAIN CHARACTER</small>
-                    <strong>DP<span>✦</span></strong>
-                    <code>&lt;keep building /&gt;</code>
-                  </div>
-                  <span>HELLO, WORLD!</span>
+                  <PhotoPanel enabled={effects} />
                 </div>
                 <h3>{profile.fullName}</h3>
                 <p>{profile.education}</p>
