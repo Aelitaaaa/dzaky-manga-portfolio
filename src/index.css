@@ -356,14 +356,7 @@ h3 {
   overflow: hidden;
   background: #e7ded1;
 }
-.art-frame img {
-  height: 100%;
-  object-position: center 35%;
-  transition: transform 0.8s;
-}
-.art-frame:hover img {
-  transform: scale(1.04);
-}
+
 .art-caption {
   position: absolute;
   bottom: 15px;
@@ -526,15 +519,7 @@ h3 {
   border: 1px solid var(--ink);
   background: #ddc6c9;
 }
-.portrait-crop img {
-  height: 100%;
-  object-position: 50% 27%;
-  filter: grayscale(1);
-  transition: filter 0.3s;
-}
-.portrait-crop:hover img {
-  filter: grayscale(0);
-}
+
 .portrait-crop > span {
   position: absolute;
   right: 10px;
@@ -1314,9 +1299,7 @@ dialog::backdrop {
   color: var(--ink);
   background: var(--paper);
 }
-[data-theme="dark"] .art-frame img {
-  filter: brightness(0.85);
-}
+
 [data-motion="off"] {
   scroll-behavior: auto;
 }
@@ -1715,3 +1698,13 @@ dialog::backdrop {
 .all-repos {
   margin-top: 35px;
 }
+
+.ink-stage, .ink-stage canvas { width: 100%; height: 100%; display: block; }
+.ink-stage canvas { cursor: crosshair; touch-action: pan-y; }
+.ink-stage .art-caption { font-size: 12px; cursor: pointer; z-index: 1; }
+.ink-stage .art-caption:disabled { cursor: default; }
+.profile-monogram { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #242321; background: radial-gradient(#24232122 1px, transparent 1px) 0 0 / 6px 6px, #eee8da; }
+.profile-monogram small { font: 10px monospace; letter-spacing: 1px; }
+.profile-monogram strong { font-size: 100px; letter-spacing: -10px; line-height: 1.3; transform: rotate(-6deg); }
+.profile-monogram strong span { color: #a94f68; font-size: 46px; vertical-align: top; letter-spacing: 0; }
+.profile-monogram code { font-size: 12px; }

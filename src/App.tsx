@@ -1,3 +1,4 @@
+import { InkStage } from "./components/InkStage";
 import {
   useLenisSmoothScroll,
   stopLenisScroll,
@@ -648,14 +649,7 @@ export default function App() {
             >
               <div className="art-offset" />
               <div className="art-frame">
-                <img
-                  src="/midnight-manga.webp"
-                  alt="Ilustrasi manga programmer memakai headphone di meja kerja saat malam"
-                  width="1024"
-                  height="1536"
-                  fetchPriority="high"
-                />
-                <span className="art-caption">A NEW CHAPTER BEGINS.</span>
+                <InkStage enabled={effects} />
               </div>
               <motion.div
                 className="speech-bubble"
@@ -715,11 +709,11 @@ export default function App() {
               <Reveal className="about-card panel">
                 <span className="eyebrow">THE MAIN CHARACTER</span>
                 <div className="portrait-crop">
-                  <img
-                    src="/midnight-manga.webp"
-                    alt="Karakter ilustrasi untuk portofolio Dzaky"
-                    loading="lazy"
-                  />
+                  <div className="profile-monogram" aria-label="Inisial Dzaky Putra">
+                    <small>DEVELOPER / MAIN CHARACTER</small>
+                    <strong>DP<span>✦</span></strong>
+                    <code>&lt;keep building /&gt;</code>
+                  </div>
                   <span>HELLO, WORLD!</span>
                 </div>
                 <h3>{profile.fullName}</h3>
