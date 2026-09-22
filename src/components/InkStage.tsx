@@ -55,13 +55,13 @@ export function InkStage({ enabled }: { enabled: boolean }) {
       ctx.lineTo(w, h); ctx.closePath(); ctx.fillStyle = "#242321"; ctx.fill();
       ctx.beginPath();
       for (let i = 0; i < count; i++) ctx.lineTo(i / (count - 1) * w, surface(i) + 8);
-      ctx.strokeStyle = "#d68b9c"; ctx.lineWidth = 3; ctx.stroke();
+      ctx.strokeStyle = "#ac201c"; ctx.lineWidth = 3; ctx.stroke();
       const center = Math.floor(count * .6);
       ctx.save(); ctx.translate(w * .6, surface(center) - 10);
       ctx.rotate(Math.atan2(height[center + 2] - height[center - 2], w * 4 / count) * .6);
       ctx.beginPath(); ctx.moveTo(-42, -5); ctx.lineTo(42, -5); ctx.lineTo(22, 12); ctx.lineTo(-22, 12); ctx.closePath();
       ctx.fillStyle = "#faf8f1"; ctx.fill(); ctx.strokeStyle = "#242321"; ctx.lineWidth = 2; ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(-30, -5); ctx.lineTo(0, -37); ctx.lineTo(25, -5); ctx.closePath(); ctx.fillStyle = "#d68b9c"; ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(-30, -5); ctx.lineTo(0, -37); ctx.lineTo(25, -5); ctx.closePath(); ctx.fillStyle = "#ac201c"; ctx.fill(); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(0, -37); ctx.lineTo(0, -5); ctx.stroke(); ctx.restore();
       ctx.fillStyle = "#242321";
       for (const p of drops) { ctx.beginPath(); ctx.ellipse(p.x, p.y, 2, 3.5, 0, 0, Math.PI * 2); ctx.fill(); }
