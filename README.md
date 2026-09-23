@@ -1,81 +1,330 @@
 # Dzaky Portfolio — Code & Stories
 
-Portofolio pribadi **Muhamad Dzaky Putra Fardian**, dengan tampilan manga interaktif: panel komik, tekstur kertas, tinta hitam, dan aksen merah vermilion.
+Personal portfolio milik **Muhamad Dzaky Putra Fardian** yang menampilkan proyek, teknologi, aktivitas pengembangan, serta perjalanan belajar dalam satu website interaktif.
 
-## Stack
+Website ini dibangun dengan fokus pada pengalaman pengguna, animasi yang halus, tampilan editorial, responsivitas, serta berbagai interaksi visual yang dibuat menggunakan React, CSS, Framer Motion, dan Canvas.
 
-React · TypeScript · Vite · Tailwind CSS · Framer Motion · Lenis · HTML5 Canvas 2D.
+---
 
-Visual dekoratif dibuat dengan kode CSS dan Canvas. Foto profil menggunakan foto asli; tidak menggunakan gambar hasil generasi AI.
+## Tentang Project
 
-## Fitur
+**Dzaky Portfolio** merupakan website portofolio pribadi yang dirancang untuk menampilkan lebih dari sekadar daftar project.
 
-- **BookFloat di Chapter 03:** buku membuka saat hover atau tap, kartu teknologi menyebar dengan spring, tilt, dan drift. Memilih kartu memperbarui detail teknologi.
-- Smooth scrolling Lenis, scrollbar bergaya tepi buku, penanda chapter, dan progres membaca.
-- Simulasi permukaan tinta, perahu kertas, riak dan percikan interaktif melalui Canvas 2D.
-- Huruf judul, stiker, dan balon percakapan yang dapat ditarik.
-- Foto dengan tilt interaktif serta pilihan warna asli atau filter manga.
-- Notebook interaktif, transisi panel, speed lines, dan efek impact saat klik.
-- Filter proyek, dialog detail, perjalanan belajar, dan grafik kontribusi GitHub.
-- Mode malam, pengaturan kurangi animasi, dukungan keyboard, dan layout responsif.
+Setiap bagian menyajikan perjalanan sebagai developer, mulai dari pengenalan singkat, project yang pernah dikerjakan, teknologi yang digunakan, aktivitas GitHub, hingga perkembangan belajar.
 
-## Proyek
+Desain menggunakan pendekatan minimal, editorial, dan interaktif dengan kombinasi warna netral, hitam, serta aksen merah.
 
-| Proyek | Repository |
+---
+
+## Tech Stack
+
+| Technology | Kegunaan |
+| --- | --- |
+| React | Membangun antarmuka berbasis komponen |
+| TypeScript | Type safety dan maintainability |
+| Vite | Development server dan build tool |
+| Tailwind CSS | Utility styling |
+| Framer Motion | Animasi dan interaksi |
+| Lenis | Smooth scrolling |
+| HTML5 Canvas | Efek visual interaktif |
+| Lucide Icons | Ikon antarmuka |
+
+---
+
+## Fitur Utama
+
+### Interactive Hero
+
+Bagian utama memiliki beberapa elemen interaktif seperti huruf, sticker, dan speech bubble yang dapat digerakkan.
+
+### BookFloat
+
+Bagian teknologi menggunakan komponen **BookFloat** yang dapat terbuka ketika di-hover atau ditekan.
+
+Kartu teknologi ditampilkan menggunakan kombinasi:
+
+- Spring animation
+- Tilt
+- Drift
+- Dynamic positioning
+
+Memilih salah satu kartu akan memperbarui informasi teknologi yang sedang ditampilkan.
+
+### Interactive Canvas
+
+Canvas 2D digunakan untuk menghasilkan berbagai interaksi visual langsung melalui kode, seperti:
+
+- Ripple
+- Particle effect
+- Interactive drawing
+- Paper boat interaction
+- Click impact
+
+### Project Showcase
+
+Project ditampilkan melalui kartu interaktif yang berisi:
+
+- Nama project
+- Deskripsi
+- Tech stack
+- Repository
+- Status project
+- Detail pengembangan
+
+### GitHub Activity
+
+Website dapat menampilkan aktivitas kontribusi GitHub berdasarkan akun yang dikonfigurasi.
+
+Data kontribusi diperoleh melalui:
+
+```text
+github-contributions-api.jogruber.de
+```
+
+Jika data tidak tersedia, website menampilkan status error serta opsi untuk mencoba kembali.
+
+### Developer Journey
+
+Bagian perjalanan menampilkan perkembangan belajar dan pengembangan project dalam bentuk timeline.
+
+### Theme & Accessibility
+
+Website menyediakan:
+
+- Light mode
+- Dark mode
+- Reduced motion
+- Responsive layout
+- Keyboard navigation
+- Focus state
+- Native touch scrolling
+
+---
+
+## Featured Projects
+
+| Project | Repository |
 | --- | --- |
 | OfficeFlow | [office-management](https://github.com/Aelitaaaa/office-management) |
 | Penjualan Obat | [penjualan_obat_fix](https://github.com/Aelitaaaa/penjualan_obat_fix) |
 | Perpus Masamba | [perpusMasamba](https://github.com/Aelitaaaa/perpusMasamba) |
 | Portofolio Dzaky | [PortofolioDzaky](https://github.com/Aelitaaaa/PortofolioDzaky) |
 
-## Menjalankan secara lokal
+Project lainnya dapat ditemukan melalui profil GitHub:
 
-Build telah diuji dengan Node.js 24 dan npm.
+[github.com/Aelitaaaa](https://github.com/Aelitaaaa)
+
+---
+
+## Menjalankan Project
+
+Clone repository:
 
 ```bash
 git clone https://github.com/Aelitaaaa/dzaky-portfolio.git
+```
+
+Masuk ke directory project:
+
+```bash
 cd dzaky-portfolio
-npm ci
+```
+
+Install dependency:
+
+```bash
+npm install
+```
+
+Jalankan development server:
+
+```bash
 npm run dev
 ```
 
-Buka alamat dev server yang muncul di terminal.
+Buka alamat yang muncul pada terminal.
+
+Secara default Vite biasanya menggunakan:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Production Build
+
+Untuk membuat production build:
 
 ```bash
 npm run build
+```
+
+Untuk melihat hasil build secara lokal:
+
+```bash
 npm run preview
 ```
 
-## Mengganti konten
+Hasil build akan disimpan pada:
 
-| Berkas | Isi |
+```text
+dist/
+```
+
+---
+
+## Struktur Project
+
+```text
+dzaky-portfolio/
+│
+├── public/
+│   ├── dzaky-portrait.jpeg
+│   └── favicon.svg
+│
+├── src/
+│   ├── components/
+│   │   ├── BookFloat.tsx
+│   │   ├── InkStage.tsx
+│   │   ├── MangaDetails.tsx
+│   │   └── PhotoPanel.tsx
+│   │
+│   ├── data/
+│   │   └── mangaData.ts
+│   │
+│   ├── hooks/
+│   │   └── useLenisSmoothScroll.ts
+│   │
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+│
+├── index.html
+├── package.json
+├── vite.config.ts
+├── vercel.json
+└── README.md
+```
+
+---
+
+## Konfigurasi Konten
+
+Sebagian besar informasi website dapat diubah melalui:
+
+```text
+src/data/mangaData.ts
+```
+
+File tersebut menyimpan data seperti:
+
+- Profil
+- Project
+- Teknologi
+- Perjalanan
+- GitHub
+- Kontak
+- Social link
+
+Beberapa komponen utama berada pada:
+
+| File | Fungsi |
 | --- | --- |
-| `src/data/mangaData.ts` | Profil, proyek, teknologi, perjalanan, dan kontak |
-| `src/components/BookFloat.tsx` | Interaksi buku dan kartu teknologi |
-| `src/components/MangaDetails.tsx` | Detail interaktif dan navigasi chapter |
-| `src/components/InkStage.tsx` | Simulasi tinta Canvas |
-| `src/components/PhotoPanel.tsx` | Panel foto dan filter manga |
-| `src/hooks/useLenisSmoothScroll.ts` | Perilaku smooth scroll |
-| `src/index.css` | Palet, layout, scrollbar, dan dekorasi manga |
-| `public/dzaky-portrait.jpeg` | Foto profil |
+| `src/components/BookFloat.tsx` | Interaksi buku teknologi |
+| `src/components/InkStage.tsx` | Efek visual berbasis Canvas |
+| `src/components/MangaDetails.tsx` | Notebook dan navigasi chapter |
+| `src/components/PhotoPanel.tsx` | Foto profil interaktif |
+| `src/hooks/useLenisSmoothScroll.ts` | Smooth scrolling |
+| `src/index.css` | Layout, tema, responsive design, dan visual |
 
-Isi `cvUrl`, LinkedIn, atau URL demo pada data profil/proyek untuk mengaktifkan tautan terkait. Preferensi sistem `prefers-reduced-motion` dan tombol kurangi animasi membatasi gerakan; scroll sentuh tetap native.
+---
 
-## Deployment Vercel
+## Deployment
 
-Deployment belum dilakukan. Konfigurasi `vercel.json` sudah tersedia untuk digunakan setelah akun Vercel siap.
+Project sudah memiliki konfigurasi:
 
-1. Impor repository **Aelitaaaa/dzaky-portfolio**, branch **main**.
-2. Pilih preset **Vite**, root directory di root repository.
-3. Gunakan build command `npm run build` dan output directory `dist`.
-4. Pilih Node.js 24.x, lalu deploy.
+```text
+vercel.json
+```
 
-Tidak memerlukan database atau environment variable. Grafik kontribusi menggunakan layanan publik `github-contributions-api.jogruber.de`; tampilan menyediakan status error dan retry jika layanan tidak tersedia. Font dimuat dari Google Fonts dengan font sistem sebagai fallback.
+Untuk deploy menggunakan Vercel:
 
-## Lisensi dan kredit
+1. Import repository `Aelitaaaa/dzaky-portfolio`.
+2. Gunakan branch `main`.
+3. Pilih framework preset `Vite`.
+4. Gunakan build command:
 
-Kode menggunakan [MIT License](LICENSE). Pengembangan dan modifikasi portofolio: **Muhamad Dzaky Putra Fardian**.
+```bash
+npm run build
+```
 
-Fondasi awal berasal dari [template-porto-pantai](https://github.com/ryhndastra/template-porto-pantai) oleh Reyhand Astra. Pemberitahuan hak cipta asal dipertahankan untuk bagian kode template yang digunakan.
+5. Gunakan output directory:
 
-[React Bits](https://github.com/DavidHDev/react-bits) menjadi referensi ide interaksi. Komponen BookFloat dan detail manga ditulis khusus untuk portofolio ini.
+```text
+dist
+```
+
+Project tidak membutuhkan database atau environment variable untuk menjalankan fitur utama.
+
+---
+
+## Accessibility
+
+Website memperhatikan beberapa aspek aksesibilitas seperti:
+
+- Keyboard navigation
+- Focus state
+- Reduced motion
+- Responsive interface
+- Semantic HTML
+- Accessible button label
+- Dark mode
+- Native touch scrolling
+
+Website juga menghormati preferensi sistem:
+
+```css
+prefers-reduced-motion
+```
+
+---
+
+## Development
+
+Project ini terus dikembangkan sebagai tempat untuk mempelajari dan mencoba berbagai hal seperti:
+
+- Frontend interaction
+- Animation
+- UI engineering
+- Canvas experiment
+- Responsive layout
+- Component architecture
+- Accessibility
+- Performance optimization
+
+Tujuan utama project ini bukan hanya sebagai halaman profil, tetapi juga sebagai ruang untuk bereksperimen dan mendokumentasikan perkembangan sebagai developer.
+
+---
+
+## License
+
+Project ini menggunakan:
+
+[MIT License](LICENSE)
+
+Pengembangan dan modifikasi:
+
+**Muhamad Dzaky Putra Fardian**
+
+Fondasi awal project berasal dari:
+
+[template-porto-pantai](https://github.com/ryhndastra/template-porto-pantai) oleh Reyhand Astra.
+
+Pemberitahuan hak cipta dari project asal tetap dipertahankan pada bagian kode yang digunakan.
+
+Beberapa konsep interaksi terinspirasi dari:
+
+[React Bits](https://github.com/DavidHDev/react-bits)
+
+Komponen dan implementasi interaktif pada portfolio ini dikembangkan serta disesuaikan khusus untuk project **Dzaky Portfolio**.
