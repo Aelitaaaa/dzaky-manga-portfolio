@@ -18,7 +18,7 @@ export const projects = [
     category: "Full-stack",
     year: "PUBLIC",
     symbol: "01",
-    color: "pink",
+    color: "crimson",
     artTitle: "ORDER.\nBUILD.\nDELIVER.",
     description:
       "Sistem operasional kantor: pesanan, pembelian bahan, surat jalan, invoice, pembayaran, dan dokumen.",
@@ -87,7 +87,7 @@ export const projects = [
     category: "Frontend",
     year: "PUBLIC",
     symbol: "04",
-    color: "pink",
+    color: "crimson",
     artTitle: "A LITTLE\nABOUT\nME.",
     description:
       "Versi portofolio sebelumnya, berisi profil, skill, layanan, slider proyek, dan informasi kontak.",
