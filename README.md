@@ -307,24 +307,9 @@ Tujuan utama project ini bukan hanya sebagai halaman profil, tetapi juga sebagai
 
 ---
 
-## License
-
-Project ini menggunakan:
-
-[MIT License](LICENSE)
-
-Pengembangan dan modifikasi:
-
-**Muhamad Dzaky Putra Fardian**
-
-Fondasi awal project berasal dari:
-
-[template-porto-pantai](https://github.com/ryhndastra/template-porto-pantai) oleh Reyhand Astra.
-
-Pemberitahuan hak cipta dari project asal tetap dipertahankan pada bagian kode yang digunakan.
 
 Beberapa konsep interaksi terinspirasi dari:
 
 [React Bits](https://github.com/DavidHDev/react-bits)
 
-Komponen dan implementasi interaktif pada portfolio ini dikembangkan serta disesuaikan khusus untuk project **Dzaky Portfolio**.
+Komponen dan implementasi interaktif pada portfolio ini dikembangkan serta disesuaikan khusus untuk project Dzaky Portfolio.
