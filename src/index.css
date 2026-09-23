@@ -299,6 +299,8 @@ h3 {
   color: transparent;
   -webkit-text-stroke: 1.5px var(--ink);
   margin-top: 9px;
+  letter-spacing: -5px;
+  font-kerning: none;
 }
 .name-outline .accent {
   -webkit-text-stroke: 0;
@@ -1745,8 +1747,8 @@ html { scrollbar-width: auto; scrollbar-color: #ac201c #e7e2d8; scrollbar-gutter
 .book-percent small { display: block; font-size: 8px; margin-top: 4px; color: var(--muted); }
 .magnetic-note { position: relative; max-width: 430px; margin-top: 26px; }
 .manga-notebook { position: relative; border: 1.5px solid var(--ink); background: var(--surface); box-shadow: 4px 4px 0 var(--line), 5px 5px 0 var(--ink); transform: rotate(-1deg); padding-left: 23px; }
-.notebook-binding { position: absolute; left: 5px; top: 15px; bottom: 15px; writing-mode: vertical-rl; font: 15px monospace; letter-spacing: 9px; color: var(--muted); border-right: 1px solid var(--line); padding-right: 5px; }
-.notebook-tabs { display: flex; border-bottom: 1px solid var(--ink); }
+.notebook-binding { position: absolute; left: 5px; top: 48px; bottom: 15px; writing-mode: vertical-rl; font: 15px monospace; letter-spacing: 9px; color: var(--muted); border-right: 1px solid var(--line); padding-right: 5px; z-index: 1; }
+.notebook-tabs { position: relative; z-index: 2; display: flex; border-bottom: 1px solid var(--ink); background: var(--surface); }
 .notebook-tabs button { flex: 1; padding: 9px 8px; background: transparent; border: 0; border-right: 1px solid var(--line); font: 700 11px monospace; }
 .notebook-tabs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 .notebook-page { padding: 14px 16px; background: repeating-linear-gradient(0deg, transparent 0 24px, var(--line) 24px 25px); }
