@@ -20,14 +20,14 @@ export function useLenisSmoothScroll(enabled = true): void {
   useEffect(() => {
     if (!enabled) return;
     const lenis = new Lenis({
-      anchors: true,
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      anchors: { offset: -88 },
+      lerp: 0.085,
       orientation: "vertical",
       gestureOrientation: "vertical",
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1,
+      syncTouch: false,
     });
 
     globalLenisInstance = lenis;
@@ -43,7 +43,7 @@ export function useLenisSmoothScroll(enabled = true): void {
     return () => {
       cancelAnimationFrame(animId);
       lenis.destroy();
-      globalLenisInstance = null;
+      if (globalLenisInstance === lenis) globalLenisInstance = null;
     };
   }, [enabled]);
 }
