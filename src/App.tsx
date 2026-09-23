@@ -1,3 +1,5 @@
+import BookFloat from "./components/BookFloat";
+import { Bookmarks, Notebook, ChapterBreak } from "./components/MangaDetails";
 import { PhotoPanel } from "./components/PhotoPanel";
 import { InkStage } from "./components/InkStage";
 import {
@@ -113,7 +115,10 @@ function InkCanvas({ enabled }: { enabled: boolean }) {
       el.height = innerHeight * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
+    let lastBurst = 0;
     const burst = (e: PointerEvent) => {
+      if (performance.now() - lastBurst < 180) return;
+      lastBurst = performance.now();
       if ((e.target as Element)?.closest("input, select, textarea")) return;
       impacts.push({ x: Math.max(65, Math.min(innerWidth - 65, e.clientX)), y: Math.max(60, e.clientY), life: 1, word: ["TAP!", "POW!", "ドン!", "CLICK!"][Math.floor(Math.random() * 4)] });
       if (impacts.length > 4) impacts.shift();
@@ -536,6 +541,7 @@ export default function App() {
           Langsung ke konten
         </a>
         <InkCanvas enabled={effects} />
+        {!project && <Bookmarks active={activeSection} />}
         <motion.div className="reading-progress" style={{ scaleX: progress }} />
         <AnimatePresence>
           {intro && (
@@ -660,6 +666,7 @@ export default function App() {
                   </a>
                 )}
               </div>
+              <Notebook enabled={effects} />
               <div className="hero-footnote">
                 <span>BASED IN INDONESIA</span>
                 <span>CODE WITH A LITTLE SOUL ♡</span>
@@ -893,36 +900,33 @@ export default function App() {
               </a>
             </div>
           </section>
+          <ChapterBreak enabled={effects} />
           <section id="stack" className="section-wrap section-space">
             <Reveal>
               <Heading
                 number="03"
-                title="Alat di balik karya"
+                title="Rak di balik karya"
                 note="TECH STACK"
               />
               <p className="section-description">
-                Dari tampilan sampai penyimpanan data. Pilih satu teknologi
-                untuk melihat perannya.
+                Sorot atau ketuk buku untuk mengeluarkan kartu-kartu teknologi.
+                Pilih satu kartu untuk membaca catatan dan proyek terkait.
               </p>
-              <div className="pipeline">
+              <div className="float-bookshelf" role="group" aria-label="Buku teknologi dengan kartu melayang">
                 {layers.map((l, i) => (
-                  <button
-                    key={l.name}
-                    className={layer === i ? "layer selected" : "layer"}
-                    aria-pressed={layer === i}
-                    onClick={() => {
-                      setLayer(i);
-                      setTech(0);
-                    }}
-                  >
-                    <span>{l.icon}</span>
-                    <strong>{l.name}</strong>
-                    <small>{l.caption}</small>
-                    {i < 3 && <ArrowUpRight className="connector" size={20} />}
-                  </button>
+                  <BookFloat key={l.name}
+                    items={l.items.map(item => item.name)} label={l.name} sublabel={`${l.items.length} catatan teknologi`}
+                    trigger="hover" closeOnSelect physics drift={0.5} enabled={effects} selected={layer === i}
+                    onSelect={(_, index) => { setLayer(i); setTech(index); }}
+                    bookColor="#252422" frontColor={i === 1 ? "#92251f" : i === 3 ? "#3d4943" : "#3f3f3c"}
+                    paperColor="#f5f2e9" itemColor="#faf8f1" itemTextColor="#18181b" labelColor="#f5f5f5"
+                    width={200} height={148} radius={8} spread={180} lift={26} tilt={8}
+                    flapAngle={34} restAngle={16} openDuration={520} stagger={45} bounce={0.3}
+                  />
                 ))}
               </div>
-              <div className="tech-workbench panel">
+              <div className="shelf-caption" aria-hidden="true"><span>THE DEVELOPER'S SHELF</span><span>COLLECTION 01—04</span></div>
+              <div id="technology-pages" className="tech-workbench panel open-notebook" aria-label={`Isi buku ${layers[layer].name}`}>
                 <div className="tech-list" aria-label="Daftar teknologi">
                   {layers[layer].items.map((t, i) => (
                     <button
@@ -947,7 +951,7 @@ export default function App() {
                     transition={{ duration: 0.15 }}
                   >
                     <span className="eyebrow">
-                      TECHNOLOGY NOTES / {layers[layer].name}
+                      VOLUME {layers[layer].icon} / {layers[layer].name}
                     </span>
                     <h3>
                       {selectedTech.name}
@@ -989,6 +993,7 @@ export default function App() {
               </Reveal>
             </div>
           </section>
+          <ChapterBreak enabled={effects} />
           <section id="journey" className="section-wrap section-space">
             <Reveal>
               <Heading
